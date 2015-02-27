@@ -1,0 +1,43 @@
+{
+	"manifest_version":2,
+	
+	"name":"Xpath Inspector",
+	
+	"version":"0.0.1",
+	
+	"minimum_chrome_version": "10.0",
+	
+	"permissions": [ 
+		//"bookmarks"
+	],
+	
+	"description":"Find tag properties by xpath",
+	
+	"icons":{
+		//"16": "images/favicon-32x32.ico",
+        //"48": "images/favicon.png",
+    	//"128": "images/apple-touch-icon-120x120-precomposed.png"
+	},
+	
+	"devtools_page": "devtools.html",
+	
+	"content_scripts":[{
+		"js":[
+			"js/app/content.js",
+			"js/lib/angular.min.js"		
+		],
+		"matches":[
+			"https://*/*",
+			"http://*/*", 
+			"file:///*/*"				
+		],
+		"run_at":"document_end"
+	}],
+	
+	"background": {
+		"scripts": [
+			"background.js"
+        ]
+		
+	}
+}

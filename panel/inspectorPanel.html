@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html data-ng-app='myApp'>
+	<head>
+		<script src="inspectorPanel.js"></script>
+		<!--script src="//angular.min.js"</script-->		
+	</head>
+	<body data-ng-controller='UserInputController'>
+		<div>
+			<div>
+				<label><input type="radio" value="id" name="LocateBy">Id</label>
+				<label><input type="radio" value="name" name="LocateBy">Name</label>
+				<label><input type="radio" value="class" name="LocateBy">Class name</label>
+				<label><input type="radio" value="tag" name="LocateBy">Tag name</label>
+				<!--label><input type="radio" value="linkText" name="LocateBy">Link text</label>	
+				<label><input type="radio" value="partialLinkText" name="LocateBy">Partial Link Text</label>	
+				<label><input type="radio" value="css" name="LocateBy">CSS</label-->	
+				<label><input type="radio" value="xpath" name="LocateBy" checked>Xpath</label>				
+			</div>
+			<label data-ng-repeat="i in Locater">
+				<input type="radio" data-ng-value="i" name="ngLocateBy">i
+			</label>
+			<div>
+				<input type="text">
+				<input type="submit" onclick="hello()">			
+			</div>
+		</div>
+		
+		<!-- getText(), getAttribute(), getCSSValue(), doubleClick(), dragAndDrop() -->
+	</body>
+</html>
