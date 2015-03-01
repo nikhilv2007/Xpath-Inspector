@@ -1,13 +1,14 @@
 
 chrome.devtools.panels.create("Webdriver",
     null,
-    "panel/inspectorPanel.html",
+    "inspectorPanel.html",
     function(panel) {
       // code invoked on panel creation
       
     }
 );
 
+/*
 chrome.devtools.inspectedWindow.eval(
           "jQuery.fn.jquery",
            function(result, isException) {
@@ -17,3 +18,4 @@ chrome.devtools.inspectedWindow.eval(
                console.log("The page is using jQuery v" + result);
            }
       );
+      */

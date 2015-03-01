@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html data-ng-app='myApp' data-ng-csp>
+	<head>
+				
+	</head>
+	<body data-ng-controller='UserInputController'>
+		<div>
+			<form name="myName" novalidate><!--ng-submit="userEntry.length > 1 && findElement(selection, userEntry)"-->
+				<div>
+					Locate By : 	
+					<label data-ng-repeat="i in locator">
+						<input type="radio" value={{i}} name="LocateBy" ng-model="$parent.selection">{{i}}
+					</label>		
+				</div>
+				
+				<div>
+					<input name="query" type="text" placeholder="Find element(s)" ng-minlength=1 required ng-model="userEntry" ng-keyup="$event.keyCode == 13 && userEntry.length > 1 && findElement(selection, userEntry)">
+					<span style="color:red" ng-show="myName.query.$dirty && myName.q.$invalid">
+						<span class="error" ng-show="myName.query.$error.required">Required!</span>
+						<span class="error" ng-show="myName.query.$error.minlength">Query should be > 1 character</span>
+					</span>
+					<input type="submit" value="Find" ng-show="userEntry.length > 1" ng-click="userEntry.length > 1 && findElement(selection, userEntry)">			
+				</div>
+			</form>
+			
+			<!-- search results section -->
+			<div>
+				<ul>
+					<li ng-repeat="res in result">{{res}}
+						
+					</li>
+				</ul>
+			</div>
+			
+			<!-- Element attributes section -->
+			<div>
+				innerText : {{elemInnertext}}
+			</div>
+			<!-- getText(), getAttribute(), getCSSValue(), doubleClick(), dragAndDrop() -->
+			
+		</div>
+				
+		<script src="js/lib/angular.min.js"</script>
+		<script src="js/lib/angular-route.min.js"></script>	
+		<script src="inspectorPanel.js"></script>
+	</body>
+</html>
