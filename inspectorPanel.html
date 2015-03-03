@@ -14,10 +14,9 @@
 				</div>
 				
 				<div>
-					<input name="query" type="text" placeholder="Find element(s)" ng-minlength=1 required ng-model="userEntry" ng-keyup="$event.keyCode == 13 && userEntry.length > 1 && findElement(selection, userEntry)">
+					<input name="query" type="text" placeholder="Find element(s)" required ng-model="userEntry" ng-keyup="$event.keyCode == 13 && userEntry.length > 1 && findElement(selection, userEntry)">
 					<span style="color:red" ng-show="myName.query.$dirty && myName.q.$invalid">
-						<span class="error" ng-show="myName.query.$error.required">Required!</span>
-						<span class="error" ng-show="myName.query.$error.minlength">Query should be > 1 character</span>
+						<span class="error" ng-if="myName.query.$error.required">Required!</span>
 					</span>
 					<input type="submit" value="Find" ng-show="userEntry.length > 1" ng-click="userEntry.length > 1 && findElement(selection, userEntry)">			
 				</div>
